@@ -17,7 +17,7 @@ Please cite our paper in your publication if it helps your research:
 
 ## Main Pipeline
 
-## ![figure2](/Users/sunming/Documents/figure2.jpg)Setup
+## ![figure2](./img/figure2.jpg)Setup
 
 ### Environments
 
