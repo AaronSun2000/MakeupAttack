@@ -103,33 +103,6 @@ def train(args):
             torch.save(model.state_dict(), save_path)
 
 
-def test(args):
-    model_filepath = f'ckpt/{args.dataset}_{args.network}.pt'
-    model = torch.load(model_filepath, map_location=DEVICE)
-    model.eval()
-
-    test_loader = get_loader(args, train=False)
-
-    criterion = torch.nn.CrossEntropyLoss()
-
-    acc = eval_acc(model, test_loader)
-    print(f'ACC: {acc:.4f}')
-
-    test_set = get_dataset(args, train=False)
-    num_classes = get_classes(args.dataset)
-
-    shape = get_size(args.dataset)
-    processing = get_norm(args.dataset)
-    poison_set = PoisonDataset(dataset=test_set, threat='dirty',
-                               attack=args.attack, target=args.target,
-                               data_rate=1, poison_rate=1,
-                               processing=processing)
-    poison_loader = DataLoader(dataset=poison_set, num_workers=0,
-                               batch_size=args.batch_size)
-    asr = eval_acc(model, poison_loader)
-    print(f'ASR: {asr:.4f}')
-
-
 def poison(args):
     model = get_model(args.network, args.dataset).to(DEVICE)
     if args.transfer:
@@ -146,7 +119,7 @@ def poison(args):
     test_loader = DataLoader(dataset=attack.test_set, num_workers=0,
                              batch_size=args.batch_size)
 
-    save_path = f'ckpt/{args.dataset}_{args.network}_{args.attack}.pt'
+    save_path = f'ckpt/{args.dataset}_{args.network}.pt'
 
     best_acc = 0
     best_asr = 0
@@ -198,8 +171,6 @@ def poison(args):
 def main():
     if args.phase == 'train':
         train(args)
-    elif args.phase == 'test':
-        test(args)
     elif args.phase == 'poison':
         poison(args)
     else:
