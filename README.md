@@ -64,6 +64,7 @@ python train_model.py --phase 'poison' --dataset 'pubfig' --model 'facenet' --mo
 ```shell
 python train_GAN.py --adv --dataset 'pubfig' --model 'facenet' --model_path './ckpt/model/pubfig_facenet_makeup.pt' --GAN_path './ckpt/GAN'
 ```
+**Note**: `GAN_path` is a folder containing `G.pth`, `D_A.pth`, `D_B.pth`, `H.pth`, which can be copied from the `log` folder and renamed accordingly.
 
 ## Acknowledgements
 
