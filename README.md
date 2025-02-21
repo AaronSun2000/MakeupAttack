@@ -44,7 +44,7 @@ python train_model.py --phase 'poison' --dataset 'pubfig' --model 'facenet' --ma
 ### Generator Pretraining
 
 ```shell
-python train_GAN.py --adv False
+python train_GAN.py
 ```
 
 ### Poisoned Samples Generation
@@ -62,7 +62,7 @@ python train_model.py --phase 'poison' --dataset 'pubfig' --model 'facenet' --mo
 ### Generator Fine-tuning
 
 ```shell
-python train_GAN.py --adv True --dataset 'pubfig' --model 'facenet' --model_path './ckpt/model/pubfig_facenet_makeup.pt'
+python train_GAN.py --adv --dataset 'pubfig' --model 'facenet' --model_path './ckpt/model/pubfig_facenet_makeup.pt' --GAN_path './ckpt/GAN'
 ```
 
 ## Acknowledgements
