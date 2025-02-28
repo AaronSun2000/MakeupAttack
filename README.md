@@ -59,18 +59,20 @@ python generate.py --g_path './assets/GAN/G.pth'
 python train_model.py --phase 'poison' --dataset 'pubfig' --model 'facenet' --makeupdir 'assets/pubfig-makeup'
 ```
 
-The trained model is stored in the `ckpt` folder as `DATASET_NETWORK. pt`(_e.g._, pubfig_resnet.pt)
+The trained model is stored in the `ckpt` folder as `DATASET_NETWORK. pt`(_e.g._, `pubfig_resnet.pt`).
+
 ### Generator Fine-tuning
 
 ```shell
 python train_GAN.py --adv --dataset 'pubfig' --model 'facenet' --model_path './ckpt/model/pubfig_facenet_makeup.pt' --GAN_path './ckpt/GAN'
-```shell
+```
 
 ### Backdoor Training
+
+```shell
 python train_model.py --phase 'poison' --dataset 'pubfig' --model 'facenet' --transfer --model_path './ckpt/model/pubfig_facenet_makeup.pt' --makeupdir 'assets/pubfig-makeup'
-
-
 ```
+
 **Note**: `GAN_path` is a folder containing `G.pth`, `D_A.pth`, `D_B.pth`, `H.pth`, which can be copied from the `log` folder and renamed accordingly.
 
 ## Acknowledgements
