@@ -7,11 +7,13 @@ This is the official implementation of our paper ["MakeupAttack: Feature Space B
 Please cite our paper in your publication if it helps your research:
 
 ```latex
-@article{sun2024makeupattack,
-  title={MakeupAttack: Feature Space Black-box Backdoor Attack on Face Recognition via Makeup Transfer},
+@inproceedings{sun2024makeupattack,
+  title={Makeupattack: Feature space black-box backdoor attack on face recognition via makeup transfer},
   author={Sun, Ming and Jing, Lihua and Zhu, Zixuan and Wang, Rui},
-  journal={arXiv preprint arXiv:2408.12312},
-  year={2024}
+  booktitle={ECAI 2024: 27th European Conference on Artificial Intelligence, 19--24 October 2024, Santiago de Compostela, Spain--Including 13th Conference on Prestigious Applications of Intelligent Systems (PAIS 2024)},
+  pages={258--265},
+  year={2024},
+  organization={SAGE Publications Pvt. Ltd 1 Oliver's Yard, 55 City Road, London, EC1Y 1SP}
 }
 ```
 
